@@ -1,0 +1,13 @@
+{
+  "hash": "4a9a14f154adbc982b8284b8f8b5b0f6730724818e9726bc2b6eefd49b722249",
+  "resultados": {
+    "I_Starshot_GW_m2": 10.0,
+    "P_rad_ideal_Pa": 66.71281903963042,
+    "F_rad_ideal_N": 667.1281903963041,
+    "T_eq_R9999_eps010": 3644.1568873269007,
+    "T_eq_R99999_eps010": 2049.260013218672,
+    "brecha_area": 6250000000.0,
+    "brecha_intensidad": 9090.90909090909,
+    "brecha_fuerza": 9530402719947202.0
+  }
+}
