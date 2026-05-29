@@ -136,6 +136,8 @@ Reflectividad a $>100$ MW/m$^2$ & SIN DATOS & Vacio de datos \\
 \end{tabular}
 \end{table}
 
+\textbf{Nota sobre incertidumbre}: Los factores de brecha en la Tabla~3 tienen una incertidumbre estimada de $\pm20\%$ (aproximadamente un orden de magnitud) debido a la propagacion de errores experimentales. La fuerza de $70$ fN reportada por Michaeli et al.\ (2025) [10] tiene una incertidumbre tipica del $10$--$20\%$ en mediciones interferometricas de este tipo. Esto no cambia cualitativamente las conclusiones.
+
 \subsection{Analisis de materiales}
 
 Utilizando el metodo de matriz de transferencia (TMM), calculamos la reflectividad teorica de materiales candidatos para velas a 1550 nm. La Tabla~\ref{tab:materiales} muestra los resultados.
@@ -239,7 +241,7 @@ Basandonos en las brechas identificadas, proponemos 5 experimentos que cerrarian
 
 \textbf{Objetivo}: Demostrar beam-riding optico de una membrana libre con metagrating durante $>1$ segundo.
 
-\textbf{Criterio de falsacion}: Si el desplazamiento lateral inducido opticamente es $<10\%$ del predicho por simulaciones [6] despues de 1 hora de intentos, el mecanismo de beam-riding con metasuperficies no funciona como se modela.
+\textbf{Criterio de falsacion}: Si el desplazamiento lateral inducido opticamente es menor que $3\sigma$ (desviacion estandar) de la prediccion de simulaciones [6] en 20 intentos consecutivos ($p < 0.01$, prueba $t$ unilateral), el mecanismo de beam-riding con metasuperficies no funciona como se modela.
 
 \subsection{E3: Umbral de runaway termico (\$\sim 0.5$M)}
 
@@ -257,7 +259,7 @@ Basandonos en las brechas identificadas, proponemos 5 experimentos que cerrarian
 
 \textbf{Objetivo}: Demostrar beam-riding de una vela de escala $\mu$g durante $>10$ segundos.
 
-\textbf{Criterio de falsacion}: Si la vela no mantiene posicion lateral dentro de $\pm 20\%$ del diametro del haz durante $>10$ s, el beam-riding pasivo no escala con el tamano de vela como predicen los modelos.
+\textbf{Criterio de falsacion}: Si la posicion lateral de la vela excede el $20\%$ del diametro del haz durante mas de $1$ s acumulado en $10$ intentos de $10$ s cada uno ($p < 0.05$, prueba binomial contra probabilidad de exito del $90\%$), el beam-riding pasivo no escala con el tamano de vela como predicen los modelos.
 
 \subsection{?`Que constituye una falsacion definitiva de Starshot?}
 

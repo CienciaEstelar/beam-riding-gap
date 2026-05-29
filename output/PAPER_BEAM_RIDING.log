@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.15)  29 MAY 2026 14:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.15)  29 MAY 2026 14:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -510,82 +510,82 @@ Overfull \hbox (22.64987pt too wide) in paragraph at lines 124--137
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.232 ...tividad a alta intensidad (\$\sim 0.5$M)}
+l.234 ...tividad a alta intensidad (\$\sim 0.5$M)}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 232.
+(hyperref)                removing `\sim' on input line 234.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 232.
+(hyperref)                removing `math shift' on input line 234.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.238 ...ding a escala de nanogramos (\$\sim 1$M)}
+l.240 ...ding a escala de nanogramos (\$\sim 1$M)}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 238.
+(hyperref)                removing `\sim' on input line 240.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 238.
+(hyperref)                removing `math shift' on input line 240.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.244 ...Umbral de runaway termico (\$\sim 0.5$M)}
+l.246 ...Umbral de runaway termico (\$\sim 0.5$M)}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 244.
+(hyperref)                removing `\sim' on input line 246.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 244.
+(hyperref)                removing `math shift' on input line 246.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.250 ...acion a escala intermedia (\$\sim 1.5$M)}
+l.252 ...acion a escala intermedia (\$\sim 1.5$M)}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 250.
+(hyperref)                removing `\sim' on input line 252.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 250.
+(hyperref)                removing `math shift' on input line 252.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.256 ...g a escala de microgramos (\$\sim 1.5$M)}
+l.258 ...g a escala de microgramos (\$\sim 1.5$M)}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 256.
+(hyperref)                removing `\sim' on input line 258.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 256.
+(hyperref)                removing `math shift' on input line 258.
 
 [6] [7] [8] [9] (./PAPER_BEAM_RIDING.aux
 LaTeX Info: Redefining \. on input line 7.
@@ -601,11 +601,11 @@ Package rerunfilecheck Info: File `PAPER_BEAM_RIDING.out' has not changed.
 Here is how much of TeX's memory you used:
  12631 strings out of 474222
  192011 string characters out of 5748733
- 1939975 words of memory out of 5000000
+ 1938975 words of memory out of 5000000
  34629 multiletter control sequences out of 15000+600000
  579005 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,79p,1872b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,1872b,588s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -626,7 +626,7 @@ uper/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></
 usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/font
 s/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-su
 per/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on PAPER_BEAM_RIDING.pdf (9 pages, 395776 bytes).
+Output written on PAPER_BEAM_RIDING.pdf (9 pages, 396926 bytes).
 PDF statistics:
  321 PDF objects out of 1000 (max. 8388607)
  259 compressed objects within 3 object streams
