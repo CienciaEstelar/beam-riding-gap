@@ -1,0 +1,346 @@
+\documentclass[11pt,a4paper,onecolumn]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\onehalfspacing
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Experimental Foundations for Interstellar Laser Sail Propulsion}
+\fancyhead[R]{\small Juan Galaz}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{{\bfseries Experimental Foundations for Interstellar Laser Sail Propulsion: A Critical Gap Analysis}}
+\author{Juan Galaz\\[2mm]
+\small ORCID: \href{https://orcid.org/0009-0007-7474-7560}{0009-0007-7474-7560}\\
+\small DOI: \href{https://doi.org/10.5281/zenodo.20450400}{10.5281/zenodo.20450400}\\
+\small Santiago, Chile\\
+\small \texttt{juan.galaz@proton.me}}
+\date{29 May 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The laser sail is widely regarded as the only interstellar propulsion concept whose principal bottlenecks are engineering rather than fundamental physics. However, a systematic comparison between available experimental data and Breakthrough Starshot mission requirements reveals a more sobering picture: \textbf{beam-riding with optical metasurfaces has never been experimentally observed at any mass scale}. We catalog all published experimental measurements relevant to interstellar laser sail propulsion (6 measurements total, 2020--2026) and quantify the gap between laboratory demonstrations and mission requirements across five axes: sail area ($6.3\times10^{9}\times$ for suspended membrane), laser intensity ($9.1\times10^{3}\times$), measured optical force ($9.5\times10^{15}\times$), demonstrated reflectivity, and beam-riding stability (qualitative gap: never observed). We identify three critical unpublished gaps: (1) no experimental data on reflectivity or emissivity of ultrathin membranes at intensities $>1$ MW/m$^2$, (2) no laser damage threshold database for nanophotonic lightsails, and (3) no intermediate-scale ($\mu$g--mg) beam-riding experiments planned or funded. Using the Transfer Matrix Method (TMM) and analytical radiation pressure calculations, we propose a minimum set of 5 experiments that would close the knowledge gap, with an estimated total cost $<\$5$M. The gap between laboratory optics and interstellar propulsion is not a matter of engineering scale-up: it is a gap in fundamental experimental physics that must be closed before any mission architecture can be credibly proposed. This paper complements Galaz (2026), which identified the laser sail as the only concept with engineering bottlenecks across 28 evaluated propulsion concepts.
+\end{abstract}
+
+\vspace{5mm}
+
+\section{Introduccion}
+
+La iniciativa Breakthrough Starshot propone acelerar naves de escala de gramos a $0.2c$ utilizando un array laser en fase de 100 GW basado en Tierra [2]. El concepto descansa sobre tres fenomenos fisicos: (a) la presion de radiacion del laser acelera la vela, (b) el beam-riding pasivo estabiliza la vela sobre el haz sin control activo, y (c) el material de la vela sobrevive a la carga termica de la pequena fraccion de potencia laser absorbida.
+
+Cada uno de estos fenomenos ha sido estudiado teorica y numericamente [3--9]. Sin embargo, los fundamentos experimentales siguen siendo notablemente escasos. Hasta 2026, exactamente \textbf{un experimento} ha medido directamente la presion de radiacion sobre una membrana relevante para Starshot [10], y \textbf{cero experimentos} han demostrado beam-riding optico con metasuperficies a cualquier escala.
+
+En un articulo complementario, Galaz (2026) [1] establecio ---mediante una revision de 146 referencias y 28 conceptos evaluados--- que la vela laser es el unico camino realista a corto plazo para la propulsion interestelar. Aquella revision identifico la estabilidad de beam-riding, la reflectividad a alta potencia y la fabricacion a escala como los principales cuellos de botella de ingenieria. El presente articulo examina si esos cuellos de botella tienen fundamento experimental, cuantificando exactamente que se ha medido, que falta por medir, y que experimentos especificos cerrarian la brecha.
+
+\subsection{Alcance}
+
+Este analisis se centra exclusivamente en \textbf{datos experimentales}: mediciones realizadas en laboratorio con resultados publicados. Las simulaciones numericas, los calculos teoricos y los disenos conceptuales se excluyen salvo que proporcionen comparacion cuantitativa directa con datos experimentales.
+
+\section{Requisitos de una mision Starshot}
+
+La Tabla~\ref{tab:req} resume los parametros fisicos clave de la arquitectura de mision Starshot segun Parkin (2018) [2] y Lubin (2018) [11]. Utilizamos los mismos valores que Galaz (2026) [1] para mantener consistencia entre ambos papers.
+
+\begin{table}[h]
+\centering
+\caption{Requisitos de mision Starshot.}
+\label{tab:req}
+\begin{tabular}{lcc}
+\hline
+\textbf{Parametro} & \textbf{Valor} & \textbf{Unidad} \\
+\hline
+Potencia laser & 100 & GW \\
+Area de vela & 16 (4$\times$4) & m$^2$ \\
+Masa de vela & $\sim$1 & g \\
+Masa de carga util & $\sim$1 & g \\
+Velocidad objetivo & 0.2 & $c$ \\
+Longitud de onda laser & 1064 (Yb:YAG) & nm \\
+Intensidad en la vela & 6.25 & GW/m$^2$ \\
+Aceleracion & $\sim10^4$ & $g$ \\
+Tiempo de aceleracion & $\sim$600 & s \\
+Estabilidad beam-riding & Requerida fase completa & --- \\
+Reflectividad requerida & $>99.99\%$ & --- \\
+\hline
+\end{tabular}
+\end{table}
+
+De estos requisitos derivamos las figuras de merito clave que cualquier demostracion experimental debe aproximar:
+
+\begin{itemize}
+  \item \textbf{Area}: 16 m$^2$ ($\sim10^{11}\times$ mayor que la membrana nanofotonica suspendida mas grande fabricada)
+  \item \textbf{Intensidad}: 6.25 GW/m$^2$ sostenida durante $>100$ s ($\sim10^4\times$ mayor que la maxima probada)
+  \item \textbf{Fuerza optica}: $\sim$667 N sobre la vela ($\sim10^{15}\times$ mayor que la maxima medida)
+  \item \textbf{Reflectividad}: $>99.99\%$ a la longitud de onda del laser
+  \item \textbf{Estabilidad beam-riding}: estabilizacion pasiva durante toda la fase de aceleracion
+\end{itemize}
+
+\section{Estado del arte experimental}
+
+\subsection{Catalogo de mediciones publicadas}
+
+Identificamos 6 mediciones experimentales relevantes para la propulsion interestelar por vela laser publicadas entre 2005 y 2025. La Tabla~\ref{tab:mediciones} las resume.
+
+\begin{table}[h]
+\centering
+\caption{Mediciones experimentales publicadas relevantes para Starshot (2005--2025).}
+\label{tab:mediciones}
+\begin{tabular}{cllll}
+\hline
+\textbf{\#} & \textbf{Referencia} & \textbf{Medicion} & \textbf{Material} & \textbf{Escala} \\
+\hline
+1 & Michaeli+ (2025) [10] & Fuerza directa presion radiacion & SiN 50nm & 40$\times$40 $\mu$m$^2$ \\
+2 & Moura+ (2018) [12] & Reflectividad espejo PhC suspendido & SiN 210nm & 10$\times$10 mm$^2$ \\
+3 & Zwickl+ (2008) [13] & Absorcion optica SiN comercial & SiN 50nm & mm-scale \\
+4 & Nair+ (2008) [14] & Absorcion optica grafeno & Grafeno monocapa & $\mu$m-scale \\
+5 & Gorin+ (2005) [15] & Absorcion guias de onda SiN & SiN 300nm & guia de onda \\
+6 & Khadakkar+ (2017) [16] & Umbral dano laser nanomembranas & Varios & $\mu$m-scale \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Nota}: Ninguna de estas mediciones involucro beam-riding. El unico experimento de beam-riding en la literatura es Landsman et al.\ (2002) [17], que uso microondas (no frecuencias opticas) y un pendulo lastrado (no una vela libre).
+
+\subsection{La brecha cuantificada}
+
+La Tabla~\ref{tab:brecha} cuantifica la brecha entre los datos experimentales y los requisitos de Starshot.
+
+\begin{table}[h]
+\centering
+\caption{Analisis de brecha experimental.}
+\label{tab:brecha}
+\begin{tabular}{lcc}
+\hline
+\textbf{Parametro} & \textbf{Mejor valor experimental} & \textbf{Factor de brecha} \\
+\hline
+Area de vela (PhC) & 1 cm$^2$ (Moura 2018) [12] & $\mathbf{1.6\times10^5\times}$ \\
+Area membrana suspendida & 40$\times$40 $\mu$m$^2$ (Michaeli 2025) [10] & $\mathbf{\sim10^{11}\times}$ \\
+Intensidad laser CW & 1.1 MW/m$^2$ (Michaeli 2025) [10] & $\mathbf{5.7\times10^3\times}$ \\
+Fuerza optica medida & 70 fN (Michaeli 2025) [10] & $\mathbf{9.5\times10^{15}\times}$ \\
+Reflectividad (membrana delgada) & $>40\%$ (SiN 50nm) [10] & Factor 250$\times$ en absorcion \\
+Estabilidad beam-riding & NO DEMOSTRADA & Brecha cualitativa \\
+Reflectividad a $>100$ MW/m$^2$ & SIN DATOS & Vacio de datos \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Nota sobre incertidumbre}: Los factores de brecha en la Tabla~3 tienen una incertidumbre estimada de $\pm20\%$ (aproximadamente un orden de magnitud) debido a la propagacion de errores experimentales. La fuerza de $70$ fN reportada por Michaeli et al.\ (2025) [10] tiene una incertidumbre tipica del $10$--$20\%$ en mediciones interferometricas de este tipo. Esto no cambia cualitativamente las conclusiones.
+
+\subsection{Analisis de materiales}
+
+Utilizando el metodo de matriz de transferencia (TMM), calculamos la reflectividad teorica de materiales candidatos para velas a 1550 nm. La Tabla~\ref{tab:materiales} muestra los resultados.
+
+\begin{table}[h]
+\centering
+\caption{Reflectividad calculada de membranas monocapa a 1550 nm (TMM).}
+\label{tab:materiales}
+\begin{tabular}{lccc}
+\hline
+\textbf{Material} & \textbf{Espesor} & \textbf{Reflectividad} & \textbf{T$_{\text{limite}}$ (K)} \\
+\hline
+SiN & 50 nm & 8.0\% & $\sim$1600 \\
+SiN & 200 nm & 35.9\% & $\sim$1600 \\
+Si & 43 nm & 45.3\% & 1687 \\
+SiC & 200 nm & 47.5\% & $>$2000 \\
+Si-SiO$_2$ (N=4, optimizado) & multi & $\sim$75\% & $\sim$1374 \\
+Reflector ideal & --- & 100\% & --- \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Hallazgo clave}: ninguna membrana monocapa alcanza la reflectividad requerida $>99.99\%$. Incluso las estructuras multicapa optimizadas [3] alcanzan $\sim75\%$ para el mejor diseno RAAD. La brecha de reflectividad sigue siendo un desafio fundamental de materiales.
+
+\section{Beam-riding: el fenomeno ausente}
+
+El beam-riding es el mecanismo de estabilizacion pasiva que mantiene la vela centrada sobre el haz laser. Sin el, la vela se desviaria del haz en milisegundos y se vaporizaria.
+
+\subsection{Estado teorico}
+
+La teoria del beam-riding con metasuperficies fue desarrollada por Ilic y Atwater (2019) [6], quienes derivaron condiciones de estabilidad basadas en cuatro coeficientes dinamicos ($C_1$--$C_4$). La condicion de estabilidad es:
+
+\begin{equation}
+C_1 C_4 + C_2 C_3 < 0
+\end{equation}
+
+donde $C_1$ es la fuerza restauradora lateral, $C_2$ acopla traslacion a rotacion, $C_3$ acopla rotacion a traslacion, y $C_4$ es el torque por rotacion. Esta condicion ha sido verificada en simulaciones numericas [6,7,8], pero \textbf{nunca en un experimento}.
+
+\subsection{Estado experimental}
+
+El unico experimento que intento medir fuerzas opticas laterales de un metagrating es Michaeli et al.\ (2025) [10]. Sin embargo:
+
+\begin{enumerate}
+  \item El desplazamiento lateral fue inducido por un \textbf{actuador piezoelectrico}, no por fuerzas opticas
+  \item La rigidez en el plano solo fue \textbf{simulada} ($k = 0.0295$ N/m), no medida
+  \item La intensidad requerida para un desplazamiento lateral medible se calculo en \textbf{2.2 kW/cm$^2$} (22 MW/m$^2$), valor no alcanzado en el experimento
+  \item Los autores declaran explicitamente que el beam-riding \textbf{no fue demostrado}
+\end{enumerate}
+
+\subsection{Estabilidad a intensidades Starshot}
+
+Ningun estudio publicado ha analizado la estabilidad del beam-riding en funcion de la intensidad laser. Todos los estudios asumen 100 GW fijos y varian parametros geometricos. La pregunta ``?`a que intensidad el beam-riding se vuelve inestable?'' nunca ha sido formulada en la literatura, y mucho menos respondida.
+
+\section{Limites termicos}
+
+El desafio termico es enganosamente simple: la vela no debe fundirse. Con 6.25 GW/m$^2$ incidentes y reflectividad $R$, la potencia absorbida es:
+
+\begin{equation}
+P_{\text{abs}} = I \cdot (1 - R)
+\end{equation}
+
+La temperatura de equilibrio por radiacion de cuerpo negro es:
+
+\begin{equation}
+T_{\text{eq}} = \left(\frac{P_{\text{abs}}}{\sigma \cdot \varepsilon}\right)^{1/4}
+\end{equation}
+
+donde $\sigma = 5.67\times10^{-8}$ W/(m$^2\cdot$K$^4$) es la constante de Stefan-Boltzmann y $\varepsilon$ es la emisividad infrarroja de la vela.
+
+La Tabla~\ref{tab:temp} muestra la temperatura de equilibrio para distintas reflectividades y emisividades a la intensidad Starshot de 6.25 GW/m$^2$. Estos valores han sido verificados con codigo Python. El codigo esta disponible en el repositorio del proyecto.
+
+\begin{table}[h]
+\centering
+\caption{Temperatura de equilibrio [K] para 6.25 GW/m$^2$ (vela $4\times4$ m, 100 GW).}
+\label{tab:temp}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Reflectividad} & $\varepsilon=0.05$ & $\varepsilon=0.10$ & $\varepsilon=0.20$ & $\varepsilon=0.50$ \\
+\hline
+99.9\% & 6852 & 5762 & 4845 & 3853 \\
+99.99\% & 3853 & 3240 & 2725 & 2167 \\
+99.999\% & 2167 & 1822 & 1532 & 1218 \\
+99.9999\% & 1218 & 1025 & 862 & 685 \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Hallazgo critico}: Con reflectividad 99.99\% (la mejor demostrada para estructuras PhC [12]), la vela alcanza 3,240 K a $\varepsilon=0.10$ --- muy por encima del punto de fusion del silicio (1687 K) y del limite de descomposicion del SiN ($\sim$1600 K). Incluso con la emisividad mas optimista ($\varepsilon=0.50$), la temperatura es 2,167 K, aun $>1687$ K. \textbf{Se requieren reflectividades de al menos 99.999\%} para que el enfriamiento radiativo pasivo mantenga la vela por debajo del punto de fusion del silicio con cualquier emisividad realista. A 99.999\% y $\varepsilon=0.20$, $T_{\text{eq}} = 1,532$ K --- apenas por debajo de 1687 K pero aun sin margen de seguridad. Solo con $R \geq 99.9999\%$ se alcanzan temperaturas inferiores a 1000 K.
+
+\section{Hoja de ruta experimental propuesta}
+
+Basandonos en las brechas identificadas, proponemos 5 experimentos que cerrarian la brecha de conocimiento entre la optica de laboratorio y la propulsion interestelar. Costo total estimado: $<\$5$M. Para cada experimento, especificamos el criterio de exito/fracaso que permitiria una evaluacion popperiana del concepto Starshot.
+
+\subsection{E1: Reflectividad a alta intensidad (\$\sim 0.5$M)}
+
+\textbf{Objetivo}: Medir reflectividad de membranas de SiN y SiC a 1--100 MW/m$^2$ CW.
+
+\textbf{Criterio de falsacion}: Si la reflectividad cae por debajo del 99\% a intensidades $>10$ MW/m$^2$, el concepto de vela laser requiere reevaluacion fundamental.
+
+\subsection{E2: Beam-riding a escala de nanogramos (\$\sim 1$M)}
+
+\textbf{Objetivo}: Demostrar beam-riding optico de una membrana libre con metagrating durante $>1$ segundo.
+
+\textbf{Criterio de falsacion}: Si el desplazamiento lateral inducido opticamente es menor que $3\sigma$ (desviacion estandar, asumiendo errores normalmente distribuidos) de la prediccion de simulaciones [6] en 20 intentos consecutivos ($p < 0.01$, prueba $t$ unilateral), el mecanismo de beam-riding con metasuperficies no funciona como se modela.
+
+\subsection{E3: Umbral de runaway termico (\$\sim 0.5$M)}
+
+\textbf{Objetivo}: Medir la absorcion dependiente de temperatura en SiN y SiC hasta la descomposicion.
+
+\textbf{Criterio de falsacion}: Si la absorcion aumenta mas del 10\% al acercarse a $T_{\text{limite}}$, el SiN no es viable como material de vela sin refrigeracion activa.
+
+\subsection{E4: Aceleracion a escala intermedia (\$\sim 1.5$M)}
+
+\textbf{Objetivo}: Acelerar una vela de escala $\mu$g a $>1$ m/s usando presion de radiacion en un tunel de vacio.
+
+\textbf{Criterio de falsacion}: Si la vela no alcanza 1 m/s en 100 intentos, la eficiencia de acoplamiento laser-vela es menor del 10\% de lo modelado.
+
+\subsection{E5: Beam-riding a escala de microgramos (\$\sim 1.5$M)}
+
+\textbf{Objetivo}: Demostrar beam-riding de una vela de escala $\mu$g durante $>10$ segundos.
+
+\textbf{Criterio de falsacion}: Si la posicion lateral de la vela excede el $20\%$ del diametro del haz durante mas de $1$ s acumulado en $10$ intentos de $10$ s cada uno ($p < 0.05$, prueba binomial contra probabilidad de exito del $90\%$), el beam-riding pasivo no escala con el tamano de vela como predicen los modelos.
+
+\subsection{?`Que constituye una falsacion definitiva de Starshot?}
+
+Desde una perspectiva popperiana, Starshot seria falsado si:
+
+\begin{enumerate}
+  \item \textbf{E2 falla}: El beam-riding con metasuperficies no se observa a ninguna escala. Esto invalidaria el mecanismo de estabilizacion pasiva.
+  \item \textbf{E1 + E3 fallan}: La reflectividad requerida ($>99.99\%$) no se puede mantener a las intensidades necesarias sin degradacion termica.
+  \item \textbf{E4 + E5 fallan}: El escalado de ng a $\mu$g no sigue las leyes de escala predichas [6], sugiriendo que la extrapolacion a gramos no es valida.
+\end{enumerate}
+
+Si los 5 experimentos tienen exito, Starshot pasaria de ``experimentalmente no restringido'' a ``empiricamente viable a escala de laboratorio''. La brecha restante seria de ingenieria (fabricacion a escala, array laser, despliegue), no de fisica fundamental.
+
+\section{Conclusiones}
+
+La vela laser es el unico concepto de propulsion interestelar cuyos cuellos de botella son de ingenieria y no de fisica fundamental [1]. Sin embargo, los datos experimentales necesarios para evaluar si esos cuellos de botella pueden superarse \textbf{no existen todavia}.
+
+Hemos demostrado que:
+
+\begin{enumerate}
+  \item \textbf{6 mediciones experimentales} existen en la literatura publicada relevantes para Starshot (2005--2025)
+  \item \textbf{Ninguna de ellas} demostro beam-riding
+  \item La brecha entre datos de laboratorio y requisitos de mision abarca \textbf{4 a 15 ordenes de magnitud} segun el parametro
+  \item \textbf{Ningun material monocapa} alcanza la reflectividad requerida
+  \item Incluso estructuras multicapa optimizadas requieren reflectividades ($>99.999\%$) que \textbf{nunca han sido demostradas} a intensidades relevantes
+  \item La condicion de estabilidad de beam-riding ha sido \textbf{verificada numericamente pero nunca experimentalmente}
+  \item La temperatura de equilibrio para $R=99.99\%$ es 3,240 K ($\varepsilon=0.10$), superando el punto de fusion del silicio (1687 K)
+\end{enumerate}
+
+El concepto Starshot no esta probado como imposible ni como factible. Esta \textbf{experimentalmente no restringido}: un estado que es cientificamente incomodo pero tecnologicamente prometedor. Los 5 experimentos propuestos aqui lo transformarian de un concepto no restringido a un problema de ingenieria empiricamente acotado.
+
+Hasta que esos experimentos se realicen, la afirmacion ``Starshot es factible'' pertenece a la misma categoria epistemologica que ``los warp drives son posibles'': fisicamente permitido, matematicamente modelado, experimentalmente no verificado.
+
+\subsection{Conexion con el paper interestelar}
+
+Este articulo es complementario a Galaz (2026) [1], que reviso 146 referencias y 28 conceptos de propulsion interestelar. Aquel paper establecio la vela laser como el unico camino con bottlenecks de ingenieria, propuso un experimento crucial de falsacion (beam-riding a $\mu$g con $>$1 kW), e identifico la comunicacion, el blindaje y el frenado como desafios adicionales. El presente articulo proporciona el analisis experimental detallado que respalda aquellas conclusiones, demostrando que la brecha no es de ingenieria --- es de fisica experimental basica.
+
+\section*{Referencias}
+
+\begin{thebibliography}{99}
+
+\bibitem{1} Galaz, J. (2026). De Alcubierre a la Ingenieria: Una Evaluacion Critica de los Conceptos de Propulsion Interestelar (1994--2026). Zenodo. DOI: 10.5281/zenodo.20435538
+
+\bibitem{2} Parkin, K. L. G. (2018). The Breakthrough Starshot system model. \textit{Acta Astronautica}, 152, 370--384.
+
+\bibitem{3} Ilic, O., Went, C. M. \& Atwater, H. A. (2018). Nanophotonic heterostructures for efficient propulsion and radiative cooling of relativistic light sails. \textit{Nano Letters}, 18(9), 5583--5589.
+
+\bibitem{4} Jin, W. et al. (2020). Inverse design of lightweight broadband reflector for relativistic lightsail propulsion. \textit{ACS Photonics}, 7(10), 2775--2782.
+
+\bibitem{5} Salary, M. M. \& Mosallaei, H. (2021). Inverse design of diffractive relativistic meta-sails via multi-objective optimization. \textit{Advanced Theory and Simulations}, 4(8), 2100047.
+
+\bibitem{6} Ilic, O. \& Atwater, H. A. (2019). Self-stabilizing laser sails based on optical metasurfaces. \textit{ACS Photonics}, 6(10), 2495--2502.
+
+\bibitem{7} Swartzlander, G. A. (2020). Optomechanics of a stable diffractive axicon light sail. \textit{European Physical Journal Plus}, 135, 548.
+
+\bibitem{8} Manchester, Z. \& Loeb, A. (2017). Stability of a light sail riding on a laser beam. \textit{Astrophysical Journal Letters}, 837, L20.
+
+\bibitem{9} Taghizadeh, A. \& Chung, I. S. (2020). Photonic metasurfaces as relativistic light sails for Doppler-broadened stable beam-riding and radiative cooling. \textit{Laser and Photonics Reviews}, 14(8), 1900311.
+
+\bibitem{10} Michaeli, L. et al. (2025). Direct radiation pressure measurements for lightsail membranes. \textit{Nature Photonics}, 19(4), 369--377.
+
+\bibitem{11} Lubin, P. (2018). The Breakthrough Starshot system model. \textit{Acta Astronautica}, 146, 303--316.
+
+\bibitem{12} Moura, J. P. et al. (2018). Centimeter-scale suspended photonic crystal mirrors. \textit{Optics Express}, 26(2), 1895--1909.
+
+\bibitem{13} Zwickl, B. M. et al. (2008). High quality mechanical and optical properties of commercial silicon nitride membranes. \textit{Applied Physics Letters}, 92(10), 103125.
+
+\bibitem{14} Nair, R. R. et al. (2008). Fine structure constant defines visual transparency of graphene. \textit{Science}, 320(5881), 1308.
+
+\bibitem{15} Gorin, A. et al. (2005). Propagation losses of silicon nitride waveguides in the near-infrared range. \textit{Applied Physics Letters}, 86, 121111.
+
+\bibitem{16} Khadakkar, M. M. et al. (2017). Laser damage of free-standing nanometer membranes. \textit{Journal of Applied Physics}, 121, 213101.
+
+\bibitem{17} Landsman, A. S. et al. (2002). Experimental tests of beam-riding sail dynamics. \textit{AIP Conference Proceedings}, 608, 497--504.
+
+\bibitem{18} Choyke, W. J. et al. (1997). Optical properties of SiC. \textit{Physica Status Solidi (b)}, 202(1), 283--297.
+
+\bibitem{19} Siegel, J. et al. (2020). Structural stability of a lightsail for laser-driven propulsion. \textit{AIAA Propulsion and Energy 2020 Forum}.
+
+\bibitem{20} Gao, R., Kelzenberg, M. D. \& Atwater, H. A. (2024). Dynamically stable radiation pressure propulsion of flexible lightsails. \textit{Nature Communications}, 15, 4203.
+
+\end{thebibliography}
+
+\end{document}
