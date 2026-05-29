@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 datos/
 !datos/hash_beam_riding.json
+output/*.aux
+output/*.log
+output/*.out
