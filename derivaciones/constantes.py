@@ -26,13 +26,14 @@ LY: float = C * YR_S                    # [m]
 MEV: float = 1.602176634e-13            # MeV -> J
 GEV: float = 1.602176634e-10            # GeV -> J
 
-# --- Starshot (Parkin 2018) ---
+# --- Starshot (Parkin 2018, consistente con Galaz 2026) ---
 P_LASER: float = 100e9                  # 100 GW
-A_SAIL: float = 10.0                    # 10 m2
+A_SAIL: float = 16.0                    # 4x4 m = 16 m2 (mismo que paper interestelar)
 M_SAIL: float = 1e-3                    # 1 g (solo vela)
 M_PAYLOAD: float = 1e-3                # 1 g (starchip)
 V_TARGET_C: float = 0.2                 # 0.2c
-LAMBDA_LASER: float = 1550e-9           # 1.55 um (NIR, Starshot)
+LAMBDA_LASER: float = 1064e-9           # 1064 nm (Yb:YAG, mismo que paper interestelar)
+LAMBDA_LASER_ALT: float = 1550e-9       # 1550 nm (alternativa NIR)
 DISTANCIA_AL: float = 4.37              # Alpha Centauri [ly]
 
 # --- Constantes derivadas ---
