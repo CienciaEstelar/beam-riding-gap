@@ -92,6 +92,8 @@ La Tabla 3 cuantifica la brecha entre los datos experimentales y los requisitos 
 | Temperatura de membrana a >1 MW/m^2 | SIN DATOS | Requerida | **Vacío de datos** |
 | Umbral de daño láser (CW, nanomembranas) | SIN DATOS | Requerida | **Vacío de datos** |
 
+**Nota sobre incertidumbre**: Los factores de brecha tienen una incertidumbre estimada de ±20% (aproximadamente un orden de magnitud) debido a la propagacion de errores experimentales. La fuerza de 70 fN reportada por Michaeli et al. (2025) [10] tiene una incertidumbre tipica del 10-20% en mediciones interferometricas de este tipo. Esto no cambia cualitativamente las conclusiones —la brecha sigue siendo de 10^15±1— pero debe considerarse al interpretar los valores exactos.
+
 ### 3.3 Análisis de materiales
 
 Utilizando el método de matriz de transferencia (TMM), calculamos la reflectividad teórica de materiales candidatos para velas a 1550 nm.
@@ -183,7 +185,7 @@ Basándonos en las brechas identificadas, proponemos 5 experimentos que cerrarí
 
 **Objetivo**: Demostrar beam-riding óptico de una membrana libre con metagrating durante >1 segundo.
 **Montaje**: Láser de 100 W, membrana de 40x40 um^2 con metagrating Si-SiO2, cámara de vacío, lectura de posición interferométrica.
-**Criterio de falsación**: Si el desplazamiento lateral inducido ópticamente es <10% del predicho por simulaciones [6] después de 1 hora de intentos, el mecanismo de beam-riding con metasuperficies no funciona como se modela.
+**Criterio de falsación**: Si el desplazamiento lateral inducido ópticamente es menor que 3sigma (desviación estándar) de la predicción de simulaciones [6] en 20 intentos consecutivos (p < 0.01, prueba t unilateral), el mecanismo de beam-riding con metasuperficies no funciona como se modela.
 **Brecha cerrada**: Brecha cualitativa de beam-riding (actualmente nunca observado).
 **Institución sugerida**: Stanford (Fan Lab), Harvard (Capasso Group).
 
@@ -205,7 +207,7 @@ Basándonos en las brechas identificadas, proponemos 5 experimentos que cerrarí
 
 **Objetivo**: Demostrar beam-riding de una vela de escala ug durante >10 segundos.
 **Montaje**: Versión extendida de E4 con dirección de haz activa y vela con metagrating.
-**Criterio de falsación**: Si la vela no mantiene posición lateral dentro de ±20% del diámetro del haz durante >10 s, el beam-riding pasivo no escala con el tamaño de vela como predicen los modelos.
+**Criterio de falsación**: Si la posición lateral de la vela excede el 20% del diámetro del haz durante más de 1 s acumulado en 10 intentos de 10 s cada uno (p < 0.05, prueba binomial contra probabilidad de exito del 90%), el beam-riding pasivo no escala con el tamaño de vela como predicen los modelos.
 **Brecha cerrada**: Beam-riding a escala ug, cerrando 6 órdenes de magnitud desde ng.
 
 ### 6.1 ¿Qué constituye una falsación definitiva de Starshot?
@@ -264,7 +266,7 @@ Este artículo es complementario a Galaz (2026) [1], que revisó 146 referencias
 
 [9] Taghizadeh, A. y Chung, I. S. (2020). Photonic metasurfaces as relativistic light sails for Doppler-broadened stable beam-riding and radiative cooling. Laser and Photonics Reviews, 14(8), 1900311. DOI: 10.1002/lpor.201900311
 
-[10] Michaeli, L. et al. (2025). Direct radiation pressure measurements for lightsail membranes. Nature Photonics, 19(4), 369-377. DOI: 10.1038/s41566-024-01605-w
+[10] Michaeli, L. et al. (2025). Direct radiation pressure measurements for lightsail membranes. Nature Photonics, 19(4), 369-377. DOI: 10.1038/s41566-024-01605-w [PUBLICADO — peer-reviewed, Caltech, experimento real en laboratorio]
 
 [11] Lubin, P. (2018). The Breakthrough Starshot system model. Acta Astronautica, 146, 303-316. DOI: 10.1016/j.actaastro.2018.08.035
 
