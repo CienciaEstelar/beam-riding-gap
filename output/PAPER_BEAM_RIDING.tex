@@ -205,7 +205,7 @@ T_{\text{eq}} = \left(\frac{P_{\text{abs}}}{\sigma \cdot \varepsilon}\right)^{1/
 
 donde $\sigma = 5.67\times10^{-8}$ W/(m$^2\cdot$K$^4$) es la constante de Stefan-Boltzmann y $\varepsilon$ es la emisividad infrarroja de la vela.
 
-La Tabla~\ref{tab:temp} muestra la temperatura de equilibrio para distintas reflectividades y emisividades a la intensidad Starshot de 6.25 GW/m$^2$. Estos valores han sido verificados con codigo Python (hash SHA-256: 84112b60).
+La Tabla~\ref{tab:temp} muestra la temperatura de equilibrio para distintas reflectividades y emisividades a la intensidad Starshot de 6.25 GW/m$^2$. Estos valores han sido verificados con codigo Python. El codigo esta disponible en el repositorio del proyecto.
 
 \begin{table}[h]
 \centering
@@ -215,15 +215,15 @@ La Tabla~\ref{tab:temp} muestra la temperatura de equilibrio para distintas refl
 \hline
 \textbf{Reflectividad} & $\varepsilon=0.05$ & $\varepsilon=0.10$ & $\varepsilon=0.20$ & $\varepsilon=0.50$ \\
 \hline
-99.9\% & 3853 & 3240 & 2725 & 2167 \\
-99.99\% & 2167 & 1822 & 1533 & 1219 \\
-99.999\% & 1219 & 1024 & 861 & 685 \\
-99.9999\% & 685 & 576 & 484 & 385 \\
+99.9\% & 6852 & 5762 & 4845 & 3853 \\
+99.99\% & 3853 & 3240 & 2725 & 2167 \\
+99.999\% & 2167 & 1822 & 1532 & 1218 \\
+99.9999\% & 1218 & 1025 & 862 & 685 \\
 \hline
 \end{tabular}
 \end{table}
 
-\textbf{Hallazgo critico}: Con reflectividad 99.99\% (la mejor demostrada para estructuras PhC [12]), la vela alcanza $\sim$1,822 K a $\varepsilon=0.10$ --- por encima del punto de fusion del silicio (1687 K). Con $\varepsilon=0.05$, llega a 2,167 K, superando ampliamente el limite de descomposicion del SiN ($\sim$1600 K). \textbf{Se requieren reflectividades de al menos 99.999\%} para que el enfriamiento radiativo pasivo mantenga la vela por debajo de 1000 K con emisividades realistas ($\varepsilon > 0.2$). A 99.999\% y $\varepsilon=0.2$, $T_{\text{eq}} = 861$ K, lo que daria margen de seguridad.
+\textbf{Hallazgo critico}: Con reflectividad 99.99\% (la mejor demostrada para estructuras PhC [12]), la vela alcanza 3,240 K a $\varepsilon=0.10$ --- muy por encima del punto de fusion del silicio (1687 K) y del limite de descomposicion del SiN ($\sim$1600 K). Incluso con la emisividad mas optimista ($\varepsilon=0.50$), la temperatura es 2,167 K, aun $>1687$ K. \textbf{Se requieren reflectividades de al menos 99.999\%} para que el enfriamiento radiativo pasivo mantenga la vela por debajo del punto de fusion del silicio con cualquier emisividad realista. A 99.999\% y $\varepsilon=0.20$, $T_{\text{eq}} = 1,532$ K --- apenas por debajo de 1687 K pero aun sin margen de seguridad. Solo con $R \geq 99.9999\%$ se alcanzan temperaturas inferiores a 1000 K.
 
 \section{Hoja de ruta experimental propuesta}
 
@@ -284,7 +284,7 @@ Hemos demostrado que:
   \item \textbf{Ningun material monocapa} alcanza la reflectividad requerida
   \item Incluso estructuras multicapa optimizadas requieren reflectividades ($>99.999\%$) que \textbf{nunca han sido demostradas} a intensidades relevantes
   \item La condicion de estabilidad de beam-riding ha sido \textbf{verificada numericamente pero nunca experimentalmente}
-  \item La temperatura de equilibrio para $R=99.99\%$ es $\sim$1,822 K ($\varepsilon=0.10$), superando el punto de fusion del silicio (1687 K)
+  \item La temperatura de equilibrio para $R=99.99\%$ es 3,240 K ($\varepsilon=0.10$), superando el punto de fusion del silicio (1687 K)
 \end{enumerate}
 
 El concepto Starshot no esta probado como imposible ni como factible. Esta \textbf{experimentalmente no restringido}: un estado que es cientificamente incomodo pero tecnologicamente prometedor. Los 5 experimentos propuestos aqui lo transformarian de un concepto no restringido a un problema de ingenieria empiricamente acotado.
